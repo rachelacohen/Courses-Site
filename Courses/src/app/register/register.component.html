@@ -1,0 +1,110 @@
+
+<div class="container-fluid bg-light p-5">
+  <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="col-md-6">
+      <div class="card p-4 shadow rounded" style="background-color: #fde3cf;">
+        <h2 class="text-center mb-4" style="color: #ff6b6b;">הרשמה לאתר</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="name">שם:</label>
+              <div class="input-group">
+                <span class="input-group-text" style="background-color: #ffe5d4;"><i class="bi bi-person-fill"
+                    style="color: #ff6b6b;"></i></span>
+                <input type="text" id="name" class="form-control" formControlName="name">
+              </div>
+              <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched"
+                class="alert alert-danger">
+                <div *ngIf="registerForm.controls['name'].errors">זהו שדה חובה</div>
+                <div *ngIf="registerForm.controls['name'].errors">השם חייב להכיל לפחות 3 תווים</div>
+                <div *ngIf="registerForm.controls['name'].errors">השם יכול להכיל עד 20 תווים</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="name">אימייל:</label>
+              <div class="input-group">
+                <span class="input-group-text" style="background-color: #ffe5d4;"><i class="bi bi-envelope-fill"
+                    style="color: #ff6b6b;"></i></span>
+                <input type="text" id="email" class="form-control" formControlName="email">
+              </div>
+              <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched"
+                class="alert alert-danger">
+                <div *ngIf="registerForm.controls['email'].errors">זהו שדה חובה</div>
+                <div *ngIf="registerForm.controls['email'].errors">השם חייב להכיל לפחות 3 תווים</div>
+                <div *ngIf="registerForm.controls['email'].errors">השם יכול להכיל עד 20 תווים</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="name">כתובת:</label>
+              <div class="input-group">
+                <span class="input-group-text" style="background-color: #ffe5d4;"><i class="bi bi-house-fill"
+                    style="color: #ff6b6b;"></i></span>
+                <input type="text" id="address" class="form-control" formControlName="address">
+              </div>
+              <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched"
+                class="alert alert-danger">
+                <div *ngIf="registerForm.controls['address'].errors">זהו שדה חובה</div>
+                <div *ngIf="registerForm.controls['address'].errors">השם חייב להכיל לפחות 3 תווים</div>
+                <div *ngIf="registerForm.controls['address'].errors">השם יכול להכיל עד 20 תווים</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="name">סיסמא:</label>
+              <div class="input-group">
+                <span class="input-group-text" style="background-color: #ffe5d4;"><i class="bi bi-person-fill"
+                    style="color: #ff6b6b;"></i></span>
+                <input type="password" id="password" class="form-control" formControlName="password">
+                <button class="btn btn-outline-secondary" type="button"
+                (click)="togglePasswordVisibility('password')">
+                <i class="bi bi-eye"></i>
+              </button>
+              </div>
+              <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
+                class="alert alert-danger">
+                <div *ngIf="registerForm.controls['password'].errors">זהו שדה חובה</div>
+                <div *ngIf="registerForm.controls['password'].errors">השם חייב להכיל לפחות 3 תווים</div>
+                <div *ngIf="registerForm.controls['password'].errors">השם יכול להכיל עד 20 תווים</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="name">אימות סיסמא:</label>
+              <div class="input-group">
+                <span class="input-group-text" style="background-color: #ffe5d4;"><i class="bi bi-person-fill"
+                    style="color: #ff6b6b;"></i></span>
+                <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword">
+                <button class="btn btn-outline-secondary" type="button"
+                (click)="togglePasswordVisibility('confirmPassword')">
+                <i class="bi bi-eye"></i>
+              </button>
+              </div>
+              <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched"
+                class="alert alert-danger">
+                <div *ngIf="registerForm.controls['confirmPassword'].errors">זהו שדה חובה</div>
+                <div *ngIf="registerForm.controls['confirmPassword'].errors">השם חייב להכיל לפחות 3 תווים</div>
+                <div *ngIf="registerForm.controls['confirmPassword'].errors">השם יכול להכיל עד 20 תווים</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- נותר להוסיף עבור כל שדה את הודעות התקינות או חוסר התקינות בהתאם לקריטריונים המוגדרים -->
+
+          <button type="submit" class="btn btn-primary btn-block" style="background-color: #ff6b6b;" [disabled]="!registerForm.valid">הרשמה</button>
+        </form>
+        <p class="text-center mt-3">כבר רשום? <a href="/login" style="color: #ff6b6b;">התחבר כאן</a></p>
+      </div>
+    </div>
+  </div>
+</div>

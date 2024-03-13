@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-lg">
+          <div class="card-header bg-danger text-white">
+            <h5 class="card-title">{{ course?.name }}</h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img [src]="course?.image" class="img-fluid rounded" alt="{{ course?.name }}">
+              </div>
+              <div class="col-md-8">
+                <p class="card-text">מספר שיעורים: {{ course?.countLessons }}</p>
+                <p class="card-text">סוג למידה: {{ course?.type === 1 ? 'פרונטלי' : 'זום' }}
+                    <span [innerHtml]="course.type|iconPipe "></span>
+                </p>
+                <p class="card-text" [ngClass]="{'soon':this.isSoon}">תאריך התחלה: {{ course?.dateStart|dateFormat }}</p>
+                <p class="card-text">מרצה: {{ lecture?.name }}</p>
+                <p class="card-text">סילבוס:</p>
+                <ul class="list-group">
+                  <li class="list-group-item" *ngFor="let item of course?.syllabus">{{ item }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-danger" 
+            (click)="goBack()"
+            >חזור לרשימת הקורסים</button>
+            
+            <button class="btn btn-danger"  [disabled]="(!this.isLacturer)||(this.isLacturer&&course.lacturerId!=this.user.id)"
+            (click)="goEdit()"
+            >עריכה</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "EJ7qJu3IxKN863qKVL4oDTw/20GRMVm8dogmUtSgUQw=",
+  "Source": "CoursesServer",
+  "BasePath": "_content/CoursesServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

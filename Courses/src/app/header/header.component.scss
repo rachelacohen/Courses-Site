@@ -1,0 +1,44 @@
+/* header.component.scss */
+.navbar-nav .nav-item {
+  cursor: pointer;
+}
+
+.navbar-nav .nav-item.active {
+  border-bottom: solid 3px #ff6b6b;
+}
+
+.navbar-nav .nav-link {
+  color: #000;
+  font-size: 1.5vw;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f2af57;
+  /* צבע קישורים בעת העכבר על הקישור */
+}
+
+.container {
+  height: 15vh;
+}
+
+.log {
+  position: absolute;
+  left: 2vw;
+  display: flex;
+  width: 6vw;
+  height: 3vw;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+}
+.nav-item{
+  border: none;
+  background-color: white;
+}
+.active{
+  border: none;
+}
+.opacity{
+  opacity: 0.5;
+}

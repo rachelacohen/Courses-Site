@@ -1,0 +1,32 @@
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .card-img-top {
+    object-fit: cover;
+    height: 150px;
+  }
+  
+  .btn-secondary {
+    background-color: #ff6b6b;
+    border-color: #ff6b6b;
+  }
+  .card-img-top {
+    object-fit: contain;
+  }
+
+  .card{
+    width: 20rem;
+  }
+  
+  

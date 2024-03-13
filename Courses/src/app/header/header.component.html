@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" [ngClass]="{ 'active': getCurrentRoute() === 'home' }" (click)="toHome()">
+                <a class="nav-link">
+                  <i class="fas fa-home mr-1"></i> דף הבית
+                </a>
+              </li>
+          <li class="nav-item" [ngClass]="{ 'active': getCurrentRoute() === 'login' }" (click)="tologin()">
+            <a class="nav-link">
+              <i class="fas fa-sign-in-alt mr-1"></i> כניסה
+            </a>
+          </li>
+          <li class="nav-item" [ngClass]="{ 'active': getCurrentRoute() === 'register' }" (click)="toRegister()">
+            <a class="nav-link">
+              <i class="fas fa-user-plus mr-1"></i> הרשמה
+            </a>
+          </li>
+          <li class="nav-item" [ngClass]="{ 'active': getCurrentRoute() === 'allcourses' }" (click)="toAllCourses()">
+            <a class="nav-link">
+              <i class="fas fa-book mr-1"></i> כל הקורסים
+            </a>
+          </li>
+
+          <button class="nav-item" [ngClass]="{ 'active': getCurrentRoute() === 'addedit' , 'opacity':!isLacturer}" (click)="toAAddEdit()" [disabled]="!this.isLacturer">
+            <a class="nav-link" >
+              <i class="fas fa-book mr-1"></i> הוספת קורס
+            </a>
+          </button>
+
+          <li *ngIf="isConnect()" class="nav-item log btn" (click)="logout()">
+            <a class="nav-link">
+              <i class="bi bi-person-circle mr-1" style="color: #ff6b6b;"></i> התנתקות
+            </a>
+          </li>
+          
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+  

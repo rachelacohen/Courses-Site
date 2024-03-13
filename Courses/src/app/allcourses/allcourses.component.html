@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <label for="category" class="form-label">קטגוריה:</label>
+    <div class="input-group">
+      <select class="form-select" id="category" formControlName="categoryId" required (change)="filterCategory($event)">
+        <option *ngFor="let c of categories" [value]="c.id"> {{c.name}}</option>
+      </select>
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-primary border-primary text-white">
+          <i class="bi bi-list"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <label for="type" class="form-label">סוג הלמידה:</label>
+    <div class="input-group">
+      <select class="form-select" id="type" formControlName="typeId" required (change)="filterType($event)">
+        <option [value]=-1 selected>כל הסוגים</option>
+        <option [value]=0>זום</option>
+        <option [value]=1>פרונטלי</option>
+      </select>
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-success border-success text-white">
+          <i class="bi bi-laptop"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <label for="courseName" class="form-label">סוג הקורס: </label>
+    <div class="input-group">
+      <input type="text" class="form-control" id="courseName" (change)="filterName($event)">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-warning border-warning text-white">
+          <i class="bi bi-book"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <ng-container *ngFor="let x of courses">
+      <ng-container
+        *ngIf="(selectedCategoryId==-1||x.categoryId==selectedCategoryId)&&(selectedType==-1||x.type==selectedType)&&x.name.includes(selectedName)">
+
+        <div class="col mb-4">
+          <div class="card h-100">
+            <img [src]="x.image" class="card-img-top" alt="{{x.name}}">
+            <div class="card-body">
+              <h5 class="card-title">{{x.name}}</h5>
+              <p class="card-text">
+                <i class="bi bi-heart-fill text-danger me-1"></i>
+                {{x.categoryId === 0 ? 'ילדים' : x.categoryId === 1 ? 'מבוגרים' : ''}}
+              </p>
+              <p class="card-text">מספר שיעורים: {{x.countLessons}}</p>
+              <button class="btn btn-secondary" (click)="showCourseDetails(x.id)" [disabled]="isUser">
+                <i class="bi bi-info-circle-fill me-1"></i> פרטי הקורס
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

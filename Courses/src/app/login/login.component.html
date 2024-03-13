@@ -1,0 +1,46 @@
+<div class="container-fluid bg-light p-5">
+  <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="col-md-6">
+      <div class="card p-4 shadow rounded" style="background-color: #fde3cf;">
+        <h2 class="text-center mb-4" style="color: #ff6b6b;">התחברות לאתר</h2>
+        <form [formGroup]="loginForm" (submit)="onSubmit()">
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="name">שם:</label>            
+              <div class="input-group">
+                <span class="input-group-text" style="background-color: #ffe5d4;"><i class="bi bi-person-fill" style="color: #ff6b6b;"></i></span>
+                <input type="text" id="name" class="form-control" formControlName="name">
+              </div>
+              <ng-container *ngIf="loginForm.controls['name'].errors && !loginForm.controls['name'].pristine">
+                <div class="alert alert-danger" *ngIf="loginForm.controls['name'].errors['required']">
+                  זהו שדה חובה
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="mb-3">
+              <label for="password" class="form-label" style="color: #ff6b6b;">סיסמה</label>
+              <div class="input-group">
+                <span class="input-group-text" style="background-color: #ffe5d4;"><i class="bi bi-lock-fill"
+                    style="color: #ff6b6b;"></i></span>
+                <input type="password" formControlName="password" class="form-control" id="password"
+                  placeholder="סיסמה">
+                <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility('password')">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <ng-container *ngIf="loginForm.controls['password'].errors && !loginForm.controls['password'].pristine">
+                <div class="alert alert-danger" *ngIf="loginForm.controls['password'].errors['required']">
+                  זהו שדה חובה
+                </div>
+              </ng-container>
+            </div>
+            </div>
+          <button type="submit" class="btn btn-primary btn-block" style="background-color: #ff6b6b;" [disabled]="!loginForm.valid">התחברות</button>
+        </form>
+        <p class="text-center mt-3">עדיין לא רשום? <a href="/register" style="color: #ff6b6b;">הירשם כאן</a></p>
+      </div>
+    </div>
+  </div>
+</div>
