@@ -63,14 +63,14 @@ export class AdddeditComponent implements OnInit {
       'categoryId': new FormControl(this.course?.categoryId, [Validators.required]),
       'countLessons': new FormControl(this.course?.countLessons, [Validators.required]),
     
-      'dateStart': new FormControl(new Date(parseInt(this.course?.dateStart.toString().split('-')[2]),parseInt(this.course?.dateStart.toString().split('-')[1]),parseInt(this.course?.dateStart.toString().split('-')[0])) , [Validators.required]),
+      'dateStart': new FormControl(new Date(parseInt(this.course?.dateStart.toString().split('-')[0]),parseInt(this.course?.dateStart.toString().split('-')[1])-1,parseInt(this.course?.dateStart.toString().split('-')[2])) , [Validators.required]),
       'syllabus': new FormArray([new FormControl('', [Validators.required])]),
       'type': new FormControl(this.course?.type, [Validators.required]),
       'image': new FormControl(this.course?.image, [Validators.required])
     })
     this.updateFormValues();
-    console.log(this.course?.dateStart,"lkjyut")
-    // window.location.reload();
+    console.log(this.course?.dateStart,"lkjyut", typeof this.course.dateStart, "trtrtrt")
+    console.log(new Date(parseInt(this.course?.dateStart.toString().split('-')[0]),parseInt(this.course?.dateStart.toString().split('-')[1])-1,parseInt(this.course?.dateStart.toString().split('-')[2])))
   }
   updateFormValues() {
     const silibusFormArray = this.courseForm.get('syllabus') as FormArray;

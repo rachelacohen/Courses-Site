@@ -37,7 +37,7 @@ export class CourseDetailsComponent {
       next: (res) => {
         console.log(res, "res")
         this.course = res.filter(x => x.id == this.courseId)[0];
-       this.isSoon=(differenceInDays(this.course.dateStart, new Date()) )<=7;      
+       this.isSoon=(differenceInDays(this.course.dateStart, new Date()))<=7;      
       }
     }
     )
