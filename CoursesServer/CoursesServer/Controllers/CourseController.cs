@@ -12,13 +12,13 @@ namespace CoursesServer.Controllers
         public static List<Course> courses = new List<Course>
         {
             new Course {Name="דרמחול", CategoryId=0,DateStart=new DateTime(2024, 3,20), Image= "/assets/drama.jpg", LacturerId=1, CountLessons=30,Type=TypeLearning.פרונטלי, Syllabus=new List<string>{"הצגה","מקהלה", "ריקוד", "מחזמר", "מופע סיום"} },
-            new Course { Name="התעמלות",CategoryId=1,DateStart=new DateTime(), Image="/assets/jym.jpg", LacturerId=2, CountLessons=12,Type=TypeLearning.פרונטלי, Syllabus=new List<string>{"אירובי","התעמלות קרקע", "ריקוד", "עיצוב וחיטוב"}},
-            new Course { Name="שחייה",CategoryId=0,DateStart=new DateTime(), Image=  "/assets/swimming.jpg", LacturerId=2, CountLessons=8,Type=TypeLearning.פרונטלי, Syllabus=new List<string>{"יסודות השחייה","שחיית חזה", "שחיית גב", "שחיית חתירה", "שחיית דולפין"} },
-            new Course { Name="הפתעה",CategoryId=0,DateStart=new DateTime(), Image=  "/assets/surprise.jpg", LacturerId=3, CountLessons=20,Type=TypeLearning.פרונטלי, Syllabus=new List<string>{"אפייה","תכשיטנות", "בלונאות", "ציור","התעמלות"}},
-            new Course { Name="ציור",CategoryId=0,DateStart=new DateTime(), Image=   "/assets/draw.jpg", LacturerId=4, CountLessons=30,Type=TypeLearning.זום, Syllabus=new List<string>{"יסודות הציור","ציור דמויות", "אקריליק", "שמן", "פחם", "מים"}},
-            new Course { Name="אפייה",CategoryId=1,DateStart=new DateTime(), Image=  "/assets/bake2.jpg", LacturerId=4, CountLessons=30,Type=TypeLearning.זום, Syllabus=new List<string>{"פתיחה","פטיפורים", "עוגות ויטרינה", "מנות אחרונות", "עוגות ב 10 דקות"}},
-            new Course { Name="נגרות",CategoryId=0,DateStart=new DateTime(), Image=  "/assets/nagar.jpg", LacturerId=3, CountLessons=30,Type=TypeLearning.פרונטלי, Syllabus=new List<string>{"הכרת העץ","קופסא", "הדום", "שרפרף", "צביעה"}},
-            new Course { Name="אלקטרוניקה", CategoryId=1,DateStart=new DateTime(), Image="/assets/electronic2.jpg", LacturerId=3, CountLessons=30,Type=TypeLearning.פרונטלי, Syllabus=new List<string>{"יסודות האלקטרוניקה והחשמל","בניית משחק", "סגירת מעגל חשמלי", "מנורה"} },
+            new Course { Name="התעמלות",CategoryId=1,DateStart=new DateTime(2023, 3,20), Image="/assets/jym.jpg", LacturerId=2, CountLessons=12,Type=TypeLearning.פרונטלי, Syllabus=new List<string>{"אירובי","התעמלות קרקע", "ריקוד", "עיצוב וחיטוב"}},
+            new Course { Name="שחייה",CategoryId=0,DateStart=new DateTime(2020, 3,20), Image=  "/assets/swimming.jpg", LacturerId=2, CountLessons=8,Type=TypeLearning.פרונטלי, Syllabus=new List<string>{"יסודות השחייה","שחיית חזה", "שחיית גב", "שחיית חתירה", "שחיית דולפין"} },
+            new Course { Name="הפתעה",CategoryId=0,DateStart=new DateTime(2024, 2,20), Image=  "/assets/surprise.jpg", LacturerId=3, CountLessons=20,Type=TypeLearning.פרונטלי, Syllabus=new List<string>{"אפייה","תכשיטנות", "בלונאות", "ציור","התעמלות"}},
+            new Course { Name="ציור",CategoryId=0,DateStart=new DateTime(2024, 3,6), Image=   "/assets/draw.jpg", LacturerId=4, CountLessons=30,Type=TypeLearning.זום, Syllabus=new List<string>{"יסודות הציור","ציור דמויות", "אקריליק", "שמן", "פחם", "מים"}},
+            new Course { Name="אפייה",CategoryId=1,DateStart=new DateTime(2020, 3,20), Image=  "/assets/bake2.jpg", LacturerId=4, CountLessons=30,Type=TypeLearning.זום, Syllabus=new List<string>{"פתיחה","פטיפורים", "עוגות ויטרינה", "מנות אחרונות", "עוגות ב 10 דקות"}},
+            new Course { Name="נגרות",CategoryId=0,DateStart=new DateTime(2022,4,20), Image=  "/assets/nagar.jpg", LacturerId=3, CountLessons=30,Type=TypeLearning.פרונטלי, Syllabus=new List<string>{"הכרת העץ","קופסא", "הדום", "שרפרף", "צביעה"}},
+            new Course { Name="אלקטרוניקה", CategoryId=1,DateStart=new DateTime(2024, 3,20), Image="/assets/electronic2.jpg", LacturerId=3, CountLessons=30,Type=TypeLearning.פרונטלי, Syllabus=new List<string>{"יסודות האלקטרוניקה והחשמל","בניית משחק", "סגירת מעגל חשמלי", "מנורה"} },
         };
         // GET: api/<CourseController>
         [HttpGet]

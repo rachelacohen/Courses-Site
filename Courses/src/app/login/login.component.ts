@@ -27,7 +27,6 @@ export class LoginComponent {
     this._userService.getUsers().subscribe({
       next: (res) => {
         this.users = res;
-        console.log(this.users);
       }, error: err => console.log(err)
     })
     this._lService.getLacturers().subscribe({
@@ -79,8 +78,6 @@ export class LoginComponent {
     }
 
     else {
-      console.log(this.lacturers, "lacturers");
-      
       if (this.lacturers.filter(x => x.name == tempUser.name).length > 0) {
         if (this.lacturers.filter(x => x.name == tempUser.name && x.password == tempUser.password).length > 0) {
           this.user = this.lacturers.filter(x => x.name == tempUser.name)[0];
@@ -112,7 +109,7 @@ export class LoginComponent {
       }
       else {
         let temp = tempUser.name;
-        console.log(temp)
+
         Swal.fire({
           title: "שם משתמש שגוי",
           icon: "error",

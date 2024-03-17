@@ -28,7 +28,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.r.params.subscribe((param) => {
       this.nameLogin = param['name'];
-      console.log("paramId", this.nameLogin)
     })
     this.initializeForm();
     this.getUsers();
@@ -49,7 +48,6 @@ export class RegisterComponent implements OnInit {
     this.userService.getUsers().subscribe({
       next: (res) => {
         this.users = res;
-        console.log(this.users);
       },
       error: (err) => console.log(err)
     });

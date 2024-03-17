@@ -22,22 +22,21 @@ export class CourseDetailsComponent {
   courseId!: number;
   lecture?: Lacturer;
   isLacturer!: boolean;
-  isSoon!: boolean;
-  nameCourse?: string;
+  isSoon:boolean =false;
   user!: User
   constructor(private route: ActivatedRoute, private router: Router, private _lservice: LacturerService, private _customerService: CoursesService) { }
   ngOnInit(): void {
     this.route.params.subscribe((param) => {
       this.courseId = param['id'];
-      console.log("paramId", this.courseId)
     })
     this.user = JSON.parse(sessionStorage.getItem('user')!)
     this.isLacturer = JSON.parse(sessionStorage.getItem('isL')!)
     this._customerService.getCourses().subscribe({
       next: (res) => {
-        console.log(res, "res")
+       
         this.course = res.filter(x => x.id == this.courseId)[0];
-       this.isSoon=(differenceInDays(this.course.dateStart, new Date()))<=7;      
+        let newdate=new Date(parseInt(this.course.dateStart.toString().split('-')[0]), parseInt(this.course.dateStart.toString().split('-')[1])-1, parseInt(this.course.dateStart.toString().split('-')[2]));    
+       this.isSoon=(differenceInDays(newdate, new Date()))<=7&&differenceInDays(newdate, new Date())>=0;           
       }
     }
     )

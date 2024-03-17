@@ -68,10 +68,7 @@ export class AdddeditComponent implements OnInit {
       'type': new FormControl(this.course?.type, [Validators.required]),
       'image': new FormControl(this.course?.image, [Validators.required])
     })
-    this.updateFormValues();
-    console.log(this.course?.dateStart,"lkjyut", typeof this.course.dateStart, "trtrtrt")
-    console.log(new Date(parseInt(this.course?.dateStart.toString().split('-')[0]),parseInt(this.course?.dateStart.toString().split('-')[1])-1,parseInt(this.course?.dateStart.toString().split('-')[2])))
-  }
+    this.updateFormValues();}
   updateFormValues() {
     const silibusFormArray = this.courseForm.get('syllabus') as FormArray;
     silibusFormArray.removeAt(0);
@@ -105,7 +102,6 @@ export class AdddeditComponent implements OnInit {
   onSubmit() {
     let flag:boolean=true;
     this.getCourse();
-    console.log(this.course?.name+"lkjbv")
     flag=this.getChanges();
     if(this.course)
     {

@@ -31,12 +31,9 @@ export class AllCoursesComponent implements OnInit {
     this.isUser = sessionStorage.getItem('user') == JSON.stringify(new User());
     this.user = JSON.parse(sessionStorage.getItem('user')!)
     this.isLacturer = JSON.parse(sessionStorage.getItem('isL')!)
-    console.log(this.isLacturer, "isl", this.user, "user")
     this._courses.getCourses().subscribe({
       next: (res) => {
         this.courses = res;
-        console.log(this.courses);
-        
       }
     })
     this._categories.getCategorys().subscribe({
@@ -49,7 +46,6 @@ export class AllCoursesComponent implements OnInit {
     })
   }
   showCourseDetails(id: number) {
-    console.log(this.isUser)
     this.router.navigate(["/courseDetails", { "id": id }])
   }
   filterCategory(event: any) {
